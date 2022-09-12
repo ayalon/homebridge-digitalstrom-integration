@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "DigitalSTROMIntegrationHomebridgePlugin",
   "pluginType": "platform",
   "singular": true,
   "schema": {
@@ -9,7 +9,25 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "digitalSTROM"
+      },
+      "url": {
+        "title": "Server URL",
+        "type": "string",
+        "required": true,
+        "default": "https://dss.local:8080"
+      },
+      "appToken": {
+        "title": "App Token",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "lang": {
+        "title": "Language",
+        "type": "string",
+        "required": true,
+        "default": "de"
       }
     }
   }

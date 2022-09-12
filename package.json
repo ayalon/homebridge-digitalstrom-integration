@@ -1,16 +1,16 @@
 {
   "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
+  "displayName": "digitalSTROM Integration",
+  "name": "homebridge-digitalstrom-integration",
   "version": "1.0.0",
-  "description": "A short description about what your plugin does.",
+  "description": "Access and control you digitalStrom devices from Apple Home via homebridge.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "git://github.com/ayalon/homebridge-digitalstrom-integration.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/ayalon/homebridge-digitalstrom-integration/issues"
   },
   "engines": {
     "node": ">=14.18.1",
@@ -26,14 +26,19 @@
   "keywords": [
     "homebridge-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cross-fetch": "^3.1.5",
+    "i18n": "^0.15.0"
+  },
   "devDependencies": {
-    "@types/node": "^16.10.9",
+    "@types/node": "^16.11.58",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
     "homebridge": "^1.3.5",
     "nodemon": "^2.0.13",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.3.0",
     "typescript": "^4.4.4"
