@@ -1,16 +1,27 @@
-import axios, { Axios } from 'axios';
-import { Logger, PlatformConfig } from 'homebridge';
+import axios, { AxiosInstance } from 'axios';
+import {Logger, PlatformConfig} from 'homebridge';
+import { DSSConfig } from './types/config';
+import https from 'https';
 
 export class DSSConnector {
   private appToken = '';
   private token = '';
-  private client: Axios;
+  private config: DSSConfig;
+  private client: AxiosInstance;
+  private log: Logger;
 
-  constructor(public readonly log: Logger, public readonly config: PlatformConfig) {
+  constructor(log: Logger, config: PlatformConfig) {
+    this.log = log;
+
+    this.config = config as DSSConfig;
+
     this.appToken = this.config.appToken;
 
     this.client = axios.create({
       baseURL: this.config.url + '/json',
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false,
+      }),
     });
   }
 

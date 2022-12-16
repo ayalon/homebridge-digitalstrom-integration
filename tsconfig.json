@@ -10,8 +10,8 @@
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
-    "noImplicitAny": false
-    //"skipLibCheck": true
+    "noImplicitAny": false,
+    "skipLibCheck": true
   },
   "include": ["src/"],
   "exclude": ["**/*.spec.ts"]

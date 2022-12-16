@@ -3,13 +3,14 @@ import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, 
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
 import { ExamplePlatformAccessory } from './platformAccessory';
 import { DSSConnector } from './dss';
+import { EventEmitter } from 'node:events';
 
 /**
  * HomebridgePlatform
  * This class is the main constructor for your plugin, this is where you should
  * parse the user config and discover/register accessories with Homebridge.
  */
-export class DigitalSTROM implements DynamicPlatformPlugin {
+export class DigitalSTROM extends EventEmitter implements DynamicPlatformPlugin {
   public readonly Service: typeof Service = this.api.hap.Service;
   public readonly Characteristic: typeof Characteristic = this.api.hap.Characteristic;
 
@@ -19,6 +20,7 @@ export class DigitalSTROM implements DynamicPlatformPlugin {
   public connector: DSSConnector = new DSSConnector(this.log, this.config);
 
   constructor(public readonly log: Logger, public readonly config: PlatformConfig, public readonly api: API) {
+    super();
     this.log.debug('Finished initializing platform:', this.config.name);
 
     // When this event is fired it means Homebridge has restored all cached accessories from disk.
